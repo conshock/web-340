@@ -1,4 +1,4 @@
-# WEB 330 Node.js
+# WEB 340 Node.js
 ## Contributors
 * Conner Shockley
 * Cristy Cross
