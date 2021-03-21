@@ -1,2 +1,4 @@
-# web-340
-WEB-340 Node.js coursework
+# WEB 330 Node.js
+## Contributors
+* Conner Shockley
+* Cristy Cross
