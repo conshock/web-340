@@ -1,3 +1,12 @@
+/*
+============================================
+; Title: Assignment 2.2
+; Author: Conner Shockley
+; Date: 3/28/21
+; Description: This program sets up a basic
+; Node webserver on port 8080.
+;===========================================
+*/
 var express = require("express");
 var http = require("http");
 
