@@ -4,7 +4,8 @@
 ; Author: Conner Shockley
 ; Date: 3/28/21
 ; Description: This program sets up a basic
-; Node webserver on port 8080.
+; Node webserver on port 3000 and adds
+; routing.
 ;===========================================
 */
 var express = require("express");
