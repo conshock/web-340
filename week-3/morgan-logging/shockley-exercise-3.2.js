@@ -1,10 +1,10 @@
 /*
 ============================================
-; Title: Assignment 2.2
+; Title: Exercise 3.2
 ; Author: Conner Shockley
 ; Date: 4/3/21
 ; Description: This program sets up a basic
-; Node webserver on port 3000 and adds
+; Node webserver on port 8080 and adds
 ; an ejs index page and a morgan logger.
 ;===========================================
 */
