@@ -1,0 +1,20 @@
+<!-- 
+    Title: index.ejs
+    Author: Conner Shockley
+    Date: 4/3/2021
+    Description: Simple page that will is routed to based off of where the user navigates to in the website.
+-->
+
+<!--
+   Includes header.ejs, and footer.ejs to simplify code.
+   Displays a welcome message based on the title of the page.
+-->
+<%- include('header'); -%>
+
+<div role="main" class="container">
+  <br /><br />
+
+  <h2>Welcome to the <%= message %>!</h2>
+</div>
+
+<%- include('footer'); -%>
