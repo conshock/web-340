@@ -1,3 +1,13 @@
+/*
+============================================
+; Title: Assignment 4.2
+; Author: Conner Shockley
+; Date: 4/10/21
+; Description: This program sets up a basic
+; json-api on port 3000.
+;===========================================
+*/
+
 // Require statements to make sure express, http, and morgan are going to run.
 let express = require('express');
 let http = require('http');
