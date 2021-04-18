@@ -9,7 +9,7 @@
 ;===========================================
 */
 
-// Require statements to make sure express, http, and morgan are going to run.
+// Require statements.
 let express = require('express');
 let http = require('http');
 let path = require('path');
