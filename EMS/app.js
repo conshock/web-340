@@ -8,22 +8,44 @@
 */
 
 // Require statements.
-let express = require('express');
-let http = require('http');
-let path = require('path');
-let logger = require("morgan");
+const express = require('express');
+const http = require('http');
+const path = require('path');
+const logger = require("morgan");
+const mongoose = require('mongoose');
+const Employee = require('./models/employees');
 
 // Variable to start the application.
-let app = express();
+const app = express();
 app.set('views', path.resolve(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(logger("short"));
+
+// MongoDB connection.
+const mongoDB = 'mongodb+srv://admin:admin@buwebdev-cluster-1.0yvub.mongodb.net/test';
+mongoose.connect(mongoDB, {
+    useMongoClient: true
+});
+mongoose.Promise = global.Promise;
+const db = mongoose.connection;
+    db.on('error', console.error.bind(console, 'MongoDB connection error: '));
+    db.once('open', function() {
+    console.log('Application connected to MongoDB');
+});
 
 // Standard req and res function.
 app.get("/", function (req, res) {
     res.render("index", {
         title: "Home page"
     });
+});
+
+// New Employee data.
+let employee = new Employee({
+
+    firstName: "Conner",
+    lastName: "Shockley"
+
 });
 
 // Creating server.
