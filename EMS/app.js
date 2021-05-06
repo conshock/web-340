@@ -14,12 +14,23 @@ const path = require('path');
 const logger = require("morgan");
 const mongoose = require('mongoose');
 const Employee = require('./models/employees');
+const helmet = require("helmet");
 
 // Variable to start the application.
 const app = express();
 app.set('views', path.resolve(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(logger("short"));
+
+// Use statement for helmet(XSS).
+app.use(helmet.xssFilter());
+
+// HTTP call for helmet.
+app.get("/", function(request, response) {
+    response.render("index", {
+        message: "XSS Prevention Example"
+    });
+});
 
 // MongoDB connection.
 const mongoDB = 'mongodb+srv://admin:admin@buwebdev-cluster-1.0yvub.mongodb.net/test';
