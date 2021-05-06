@@ -15,12 +15,33 @@ const logger = require("morgan");
 const mongoose = require('mongoose');
 const Employee = require('./models/employees');
 const helmet = require("helmet");
+const csrf = require("csurf");
+const bodyParser = require("body-parser");
+const cookieParser = require("cookie-parser");
 
 // Variable to start the application.
 const app = express();
 app.set('views', path.resolve(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(logger("short"));
+
+// CSRF protection.
+const csrfProtection = csrf({cookie: true});
+
+// Use statement for body-parser.
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+
+// Cookie-parser and csrf protection functions.
+app.use(cookieParser());
+app.use(csrfProtection);
+app.use(function(request, response, next) {
+    var token = request.csrfToken();
+    response.cookie('XSRF-TOKEN', token);
+    response.locals.csrfToken = token;
+    next();
+});
 
 // Use statement for helmet(XSS).
 app.use(helmet.xssFilter());
@@ -49,6 +70,18 @@ app.get("/", function (req, res) {
     res.render("index", {
         title: "Home page"
     });
+});
+
+// Routing for New page
+app.get("/", function(request, response) {
+    response.render("index", {
+        message: "New Entry Page"
+    });
+});
+
+app.post("/process", function(request, response) {
+    console.log(request.body.txtName);
+    response.redirect("/");
 });
 
 // New Employee data.
