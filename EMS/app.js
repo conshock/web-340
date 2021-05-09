@@ -73,9 +73,10 @@ app.get("/", function (req, res) {
 });
 
 // Routing for New page
-app.get("/", function(request, response) {
-    response.render("index", {
+app.get("/new", function(request, response) {
+    response.render("new", {
         message: "New Entry Page"
+        title: 'EMS | New'
     });
 });
 

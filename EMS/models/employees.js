@@ -17,5 +17,8 @@ let EmployeeSchema = new Schema({
   lastName: {type: String, required: true }
 });
 
+// Define model
+let Employee = mongoose.model("Employee", EmployeeSchema)
+
 // Export the model so its publicly available.
-module.exports = mongoose.model('Employee', EmployeeSchema);
+module.exports = Employee;
