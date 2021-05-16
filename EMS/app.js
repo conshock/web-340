@@ -24,6 +24,7 @@ const app = express();
 app.set('views', path.resolve(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(logger("short"));
+app.set('port', process.env.PORT || 8080);
 
 // CSRF protection.
 const csrfProtection = csrf({cookie: true});
@@ -94,6 +95,5 @@ let employee = new Employee({
 });
 
 // Creating server.
-http.createServer(app).listen(3000, function() {
-    console.log('Application started on port 3000.')
-})
+http.createServer(app).listen(app.get('port'), function() 
+    { console.log('Application started on port ' + app.get('port')) });
