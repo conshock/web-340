@@ -22,3 +22,4 @@ let Employee = mongoose.model("Employee", EmployeeSchema)
 
 // Export the model so its publicly available.
 module.exports = Employee;
+module.exports = mongoose.model('Employee', EmployeeSchema)
